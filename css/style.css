@@ -548,8 +548,8 @@ label {
     .w-51 {
         width: 51px;
     }
-    .benefit-card {
-        /* width: 116px; */
+    .card-body {
+        padding: 4px 6px !important;
     }
     section a {
         font-size: 16px !important;
