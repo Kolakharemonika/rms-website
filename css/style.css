@@ -549,7 +549,7 @@ label {
         width: 51px;
     }
     .benefit-card {
-        width: 116px;
+        /* width: 116px; */
     }
     section a {
         font-size: 16px !important;
