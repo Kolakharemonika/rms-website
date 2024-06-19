@@ -163,7 +163,7 @@ let htmlBenefits = "";
 benefits.forEach(benefit => {
     htmlBenefits += `<div class="mb-3 benefit-card col-4 col-md-3">
                         <div class="card h-100 justify-content-center d-flex align-items-center">
-                            <div class="card-body">
+                            <div class="card-body benefit-card-body">
                                 <h5>${benefit.title}</h5>
                                 <p class="card-text"> ${benefit.subtitle} </p>
                                 </div>

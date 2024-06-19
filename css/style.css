@@ -581,7 +581,7 @@ label {
     .card-body+img {
         width: 58px;
     }
-    .card-body {
+    .benefit-card-body {
         padding: 4px 6px !important;
     }
     section a {
