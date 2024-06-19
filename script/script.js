@@ -187,6 +187,7 @@ if(window.innerWidth > 767.98) {
     paragraphs.forEach((p, index) => {
         p_tl.to(p, {
             opacity: 1,
+            delay: 2,
             ease: "none",
             duration: 1.5,
             stagger: 1,
@@ -196,7 +197,14 @@ if(window.innerWidth > 767.98) {
 const submitButton = document.getElementById('submit-button');
 submitButton.addEventListener('click', (event) => {
     event.preventDefault();
-    console.log('submitButton', document.contactForm);    
+    var Form = document.getElementById('contactForm');
+    console.log('submitButton', Form.checkValidity(), document.contactForm);    
+    if (Form.checkValidity() == false) {
+        var list = Form.querySelectorAll(':invalid');
+        for (var item of list) {
+            item.focus();
+        }
+    }
 });
 
 function userEmailChecker() {
@@ -207,7 +215,7 @@ function userEmailChecker() {
     if (regex.test(userEmail.value)) {
         document.getElementById("email-error").innerHTML = "";
     } else {
-        // document.getElementById("email-error").innerHTML = "Entered valid email!";
+        document.getElementById("email-error").innerHTML = "Entered valid email!";
     }
 
 }

@@ -82,6 +82,12 @@ section a {
 .carousel-danger .carousel-indicators button {
     background-color: #FF4747;
 }
+.carousel-indicators button.active {
+    opacity: 0.8 !important;
+}
+.carousel-indicators button {
+    opacity: 0.1 !important;
+}
 .carousel-container {
     height: 75vh;
 }
@@ -587,10 +593,11 @@ label {
     section a {
         font-size: 16px !important;
     }
-    label,
-    .form-control {
+
+    label, .form-control {
         font-size: 12px;
     }
+
 }
 
 @media screen and (max-width: 376px) {
