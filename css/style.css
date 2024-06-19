@@ -74,58 +74,54 @@ a {
     padding-left: 10px;
 }
 
-.benefit-card {
-    opacity: 0.9;
-    transition: all 0.3s linear;
-}
-.benefit-card:hover {
-    opacity: 1;
-    -webkit-transform: scale(1.05);
-    transform: scale(1.05);
-}
-
-.benefit-card:hover .card {
-    border: 1px solid #FF4747;
-    transition: all 0.3s linear;
-}
-
-.feature-card {
-    transition: transform 0.3s linear;
-}
-
-.feature-card:hover {
-    transform: translateY(-10px);
-    -webkit-transform: translateY(-10px);
-    border-top: 2px solid #FF4747;
-}
-.error {
-    color: #FF4747;
-    font-size: 14px;
-    padding-top: 5px;
-}
 section a {
     font-size: 20px !important;
 }
+
+
 .carousel-danger .carousel-indicators button {
     background-color: #FF4747;
 }
-
 .carousel-container {
     height: 75vh;
 }
-
 .carousel-img {
     width: 100%;
     height: 400px;
 }
-
 .carousel p {
     font-size: 22px;
 }
-
 .carousel li {
     font-size: 22px;
 }
+.carousel-item::after {
+    display: inline-block;
+    content: "";
+    top: 0;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: cover;
+}
+#digital-experience::after{
+    background-image: url(../assets/images/digital-experience-back.png);
+}
+#order-management::after{
+    background-image: url(../assets/images/order-management-back.png);
+}
+#food-management::after{
+    background-image: url(../assets/images/food-management-back.png);
+}
+#staff-management::after{
+    background-image: url(../assets/images/staff-management-back.png);
+}
+#data-analytics::after{
+    background-image: url(../assets/images/data-analytics-back.png);
+}
+
 
 .section-content {
     font-size: 24px;
@@ -135,13 +131,21 @@ section a {
     line-height: 150%;
 }
 
+
+.operations {
+    background: url(../assets/images/arrow-right.svg);
+    background-repeat: no-repeat;
+    background-size: 24%;
+    background-position: 24% 100%;
+}
+
+
 .blob-items {
     height: fit-content;
     width: 100%;
     margin: auto;
     gap: 24px;
 } 
-
 .blob-items::after {
     content: "";
     height: 70%;
@@ -155,11 +159,9 @@ section a {
     left: 48%;
     transform: translate(-50%, 0%);
 }
-
 .blob-items .blob-item-row {
     height: fit-content;
 } 
-
 .blob-items p {
     padding: 12px 10px;
     width: 186px;
@@ -178,8 +180,6 @@ section a {
     width: 18%;
     clip-path: polygon(48% 0, 0 100%, 75% 100%);
 } 
-
-
 .blob-items #blob-item-row-1 {
     gap: 5%;
 } 
@@ -199,8 +199,6 @@ section a {
     rotate: 225deg;
     background-color: #C8FFF2;
 }
-
-
 .blob-items #blob-item-row-2 {
     padding: 0 6%;
 }
@@ -221,8 +219,6 @@ section a {
     rotate: 225deg;
     background-color: #FFDCDC;
 }
-
-
 .blob-items #blob-item-row-3 {
     gap: 24%;
 } 
@@ -244,8 +240,6 @@ section a {
     rotate: 242deg;
     background-color: #FFEFD0;
 }
-
-
 .blob-items #blob-item-row-4 {
     gap: 50%;
 } 
@@ -267,8 +261,6 @@ section a {
     rotate: 290deg;
     background-color: #E2F2F3;
 }
-
-
 .traditional-section .section-content {
     width: 64%;
 }
@@ -276,34 +268,21 @@ section a {
     width: fit-content;
 }
 
+
+
+.feature-card {
+    transition: transform 0.3s linear;
+}
+.feature-card:hover {
+    transform: translateY(-10px);
+    -webkit-transform: translateY(-10px);
+    border-top: 2px solid #FF4747;
+}
 .features .card {
     width: 180px;
 }
-
 .features .card .card-body img {
     width: 64px;
-}
-
-.operations {
-    background: url(../assets/images/arrow-right.svg);
-    background-repeat: no-repeat;
-    background-size: 32%;
-    background-position: 15% 100%;
-}
-
-.benefits .card .card-body h5 {
-    color: #3F444E;
-}
-
-.benefits .card .card-body .card-text {
-    color: #6F6D77;
-    font-size: 14px;
-}
-
-footer {
-    background: radial-gradient(500px 470px at -2% 45%, #DD5E4A 0%, #191515 48%);
-    margin: 0 !important;
-    padding: 42px 32px 18px 32px;
 }
 .feature-title {
     height: 50px;
@@ -311,36 +290,67 @@ footer {
     align-items: center;
     justify-content: center;
 }
+
+
+
+.benefits .card .card-body h5 {
+    color: #3F444E;
+}
+.benefits .card .card-body .card-text {
+    color: #6F6D77;
+    font-size: 14px;
+}
+.benefit-card {
+    opacity: 0.9;
+    transition: all 0.3s linear;
+}
+.benefit-card:hover {
+    opacity: 1;
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+}
+.benefit-card:hover .card {
+    border: 1px solid #FF4747;
+    transition: all 0.3s linear;
+}
+
+
+
+footer {
+    background: radial-gradient(500px 470px at -2% 45%, #DD5E4A 0%, #191515 48%);
+    margin: 0 !important;
+    padding: 42px 32px 18px 32px;
+}
 footer p {
     color: rgba(255, 255, 255, 0.6);
 }
-
 footer .tel {
     font-size: 20px;
 }
-
 footer .tel a {
     margin-bottom: 0;
 }
-
 .form-control {
     color: rgba(255, 255, 255, 0.8);
     border: 1px solid rgba(255, 255, 255, 0.3);
 }
-
 .form-control:focus {
     border: 1px solid #DD5E4A;
     box-shadow: none;
     color: rgba(255, 255, 255, 0.8);
 }
-
 label {
     margin-bottom: 8px;
 }
-
 .form-row .form-group {
     width: 47%;
 }
+.error {
+    color: #FF4747;
+    font-size: 14px;
+    padding-top: 5px;
+}
+
 
 @media screen and (min-width: 1579px) {
     .carousel-img-wrapper img {
@@ -436,8 +446,7 @@ label {
         font-size: 20px;
     }
     .operations {
-        background-size: 40%;
-        background-position: 1% 98%;
+        background-position: 22% 92%;
     }
 }
 
@@ -496,8 +505,7 @@ label {
     }
 
     .operations {
-        background-size: 36%;
-        background-position: 1% 98%;
+        background-position: 20% 92%;
     }
     
     h3 {
@@ -506,6 +514,10 @@ label {
 
     .card-body + img {
         width: 100px;
+    }
+
+    .submit-btn {
+        text-align: center;
     }
 }
 
@@ -531,12 +543,33 @@ label {
         font-size: 17px;
     } 
 
+    .carousel-item {
+        background-image: none !important;
+    }
+
+    #digital-experience::after{
+        background: linear-gradient(267.13deg, #EBFFF4 2.29%, #F5FFFA 69.02%, #FFFFFF 97.61%);
+    }
+    #order-management::after{
+        background: linear-gradient(267.34deg, #FFF2F9 2.22%, #FFFAFD 69.11%, #FFFFFF 97.78%);
+    }
+    #food-management::after{
+        background: linear-gradient(267.13deg, #FFF3F3 2.29%, #FFFFFF 97.61%);
+    }
+    #staff-management::after{
+        background: linear-gradient(267.13deg, #EDFAFF 2.29%, #FFFFFF 97.61%);
+    }
+    #data-analytics::after{
+        background: linear-gradient(267.13deg, #FFF7F1 2.29%, #FFFDFB 69.02%, #FFFFFF 97.61%);
+    }
+
     .feature-card-body {
         padding: initial 0 !important;
     }
     
     .operations {
-        background: none;
+        background-size: 30%;
+        background-position: 6% 93%;
     }
 
     h5 {
@@ -545,7 +578,7 @@ label {
     .card-text {
         font-size: 11px;
     }
-    .card-body + img {
+    .card-body+img {
         width: 58px;
     }
     .card-body {

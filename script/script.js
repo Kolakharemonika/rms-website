@@ -104,7 +104,7 @@ const carouselItems = [
 let carouselItem = '';
 carouselItems.forEach(item => {
     carouselItem += `
-        <div class="carousel-item h-100 position-relative ${item.active ? 'active' : ''}">
+        <div class="carousel-item h-100 position-relative ${item.active ? 'active' : ''}" id="${item.imageSrc}">
             <div class="container-xl position-relative z-1 h-100 d-flex align-items-center justify-content-around">
                 <div class="px-sm-4 p-4 col-lg-6 col-12 text-content">
                     <h3 style="color: ${item.color};">${item.title}</h3>
@@ -117,7 +117,6 @@ carouselItems.forEach(item => {
                     <img src="assets/images/${item.imageSrc}.png" class="h-100 w-auto" alt="${item.imageAlt}">
                 </div>
             </div>
-            <img src="assets/images/${item.imageSrc}-back.png" class="carousel-img position-absolute top-0 end-0 h-100" alt="${item.imageAlt}-back">
         </div>
     `;
 });
@@ -168,7 +167,7 @@ benefits.forEach(benefit => {
                                 <h5>${benefit.title}</h5>
                                 <p class="card-text"> ${benefit.subtitle} </p>
                                 </div>
-                                <img class="my-3 my-sm-4" src="assets/images/${benefit.img}" alt="${benefit.title}">
+                                <img class="my-2 my-sm-4" src="assets/images/${benefit.img}" alt="${benefit.title}">
                         </div>
                     </div>`;
 });
@@ -180,8 +179,8 @@ if(window.innerWidth > 767.98) {
     let p_tl = gsap.timeline({
         scrollTrigger: {
             trigger: '.traditional-section',
-            start: "20% 80%",
-            end:"20% 20%",
+            start: "20% 84%",
+            end:"20% 10%",
             scrub: 1,
         }
     });
@@ -189,8 +188,8 @@ if(window.innerWidth > 767.98) {
         p_tl.to(p, {
             opacity: 1,
             ease: "none",
-            duration: 1,
-            stagger: 0.2,
+            duration: 1.5,
+            stagger: 1,
         });
     })
 }
