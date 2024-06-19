@@ -168,7 +168,7 @@ benefits.forEach(benefit => {
                                 <h5>${benefit.title}</h5>
                                 <p class="card-text"> ${benefit.subtitle} </p>
                                 </div>
-                                <img class="my-2 my-sm-4 w-51" src="assets/images/${benefit.img}" alt="${benefit.title}">
+                                <img class="my-3 my-sm-4" src="assets/images/${benefit.img}" alt="${benefit.title}">
                         </div>
                     </div>`;
 });

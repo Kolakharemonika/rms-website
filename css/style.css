@@ -504,7 +504,7 @@ label {
         line-height: 100%;
     }
 
-    .w-51 {
+    .card-body + img {
         width: 100px;
     }
 }
@@ -545,8 +545,8 @@ label {
     .card-text {
         font-size: 11px;
     }
-    .w-51 {
-        width: 51px;
+    .card-body + img {
+        width: 58px;
     }
     .card-body {
         padding: 4px 6px !important;
