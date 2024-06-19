@@ -1,3 +1,4 @@
+gsap.registerPlugin(ScrollTrigger) 
 window.addEventListener('scroll', function () {
     var navbar = document.getElementById('navbar');
     if (window.scrollY > 0) {
@@ -112,8 +113,8 @@ carouselItems.forEach(item => {
                         ${item.features.map(feature => `<li>${feature}</li>`).join('')}
                     </ul>
                 </div>
-                <div class="carousel-img-wrapper object-fit-contain h-100 px-4 pt-5 col-6 d-lg-flex d-none align-items-center">
-                    <img src="assets/images/${item.imageSrc}.png" class="w-auto" alt="${item.imageAlt}">
+                <div class="carousel-img-wrapper object-fit-contain h-100 px-4 pt-5 col-6 d-lg-flex d-none align-items-end align-items-xxl-center justify-content-center">
+                    <img src="assets/images/${item.imageSrc}.png" class="h-100 w-auto" alt="${item.imageAlt}">
                 </div>
             </div>
             <img src="assets/images/${item.imageSrc}-back.png" class="carousel-img position-absolute top-0 end-0 h-100" alt="${item.imageAlt}-back">
@@ -161,37 +162,38 @@ const benefits = [
 ];
 let htmlBenefits = "";
 benefits.forEach(benefit => {
-    htmlBenefits += `<div class="col-sm-6 mb-3 col-md-4 col-11 benefit-card">
-                        <div class="card h-100">
+    htmlBenefits += `<div class="mb-3 benefit-card col-4 col-md-3">
+                        <div class="card h-100 justify-content-center d-flex align-items-center">
                             <div class="card-body">
                                 <h5>${benefit.title}</h5>
                                 <p class="card-text"> ${benefit.subtitle} </p>
-                                <img class="my-4" src="assets/images/${benefit.img}" alt="${benefit.title}">
-                            </div>
+                                </div>
+                                <img class="my-2 my-sm-4 w-51" src="assets/images/${benefit.img}" alt="${benefit.title}">
                         </div>
                     </div>`;
 });
 document.querySelector(".benefits").innerHTML = htmlBenefits;
 
 const paragraphs = document.querySelectorAll('.blob-items p');
-function animateParagraphs() {
-    const numToAnimate = Math.floor(Math.random() * 8) + 1;
-    const shuffledParagraphs = Array.from(paragraphs).sort(() => 0.5 - Math.random());
-    const selectedParagraphs = shuffledParagraphs.slice(0, numToAnimate);
-    const tl = gsap.timeline({ onComplete: animateParagraphs });
-
-    tl.to(paragraphs, { opacity: 0, duration: 1, stagger: 0.5 });
-    tl.to(selectedParagraphs, { opacity: 1, duration: 0.75, stagger: 0.5 }, 0);
-}
-
-// Initialize paragraphs to be invisible
-gsap.set(paragraphs, { opacity: 0 });
 if(window.innerWidth > 767.98) {
-    animateParagraphs();
-} else {
-    gsap.set(paragraphs, { opacity: 1 });
+    gsap.set(paragraphs, { opacity: 0 });
+    let p_tl = gsap.timeline({
+        scrollTrigger: {
+            trigger: '.traditional-section',
+            start: "20% 80%",
+            end:"20% 20%",
+            scrub: 1,
+        }
+    });
+    paragraphs.forEach((p, index) => {
+        p_tl.to(p, {
+            opacity: 1,
+            ease: "none",
+            duration: 1,
+            stagger: 0.2,
+        });
+    })
 }
-
 const submitButton = document.getElementById('submit-button');
 submitButton.addEventListener('click', (event) => {
     event.preventDefault();

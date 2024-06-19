@@ -103,6 +103,9 @@ a {
     font-size: 14px;
     padding-top: 5px;
 }
+section a {
+    font-size: 20px !important;
+}
 .carousel-danger .carousel-indicators button {
     background-color: #FF4747;
 }
@@ -339,6 +342,12 @@ label {
     width: 47%;
 }
 
+@media screen and (min-width: 1579px) {
+    .carousel-img-wrapper img {
+        height: 56% !important;
+    }
+}
+
 @media screen and (max-width: 1200px) {
     h3 {
         font-size: calc(48px + 1.5vw);
@@ -494,6 +503,10 @@ label {
     h3 {
         line-height: 100%;
     }
+
+    .w-51 {
+        width: 100px;
+    }
 }
 
 @media screen and (max-width: 575.98px) {
@@ -525,6 +538,22 @@ label {
     .operations {
         background: none;
     }
+
+    h5 {
+       font-size: 1rem !important;
+    }
+    .card-text {
+        font-size: 11px;
+    }
+    .w-51 {
+        width: 51px;
+    }
+    .benefit-card {
+        width: 116px;
+    }
+    section a {
+        font-size: 16px !important;
+    }
 }
 
 @media screen and (max-width: 376px) {
@@ -553,15 +582,17 @@ label {
         font-size: 15px;
     }
 
-    .feature-card {
-        width: 80% !important;
-    }
-
     .footer-copy {
         font-size: 14px;
     }
 
     label {
         font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .feature-card {
+        width: 80% !important;
     }
 }
