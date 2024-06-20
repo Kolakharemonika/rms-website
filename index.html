@@ -90,30 +90,32 @@
                     <p class="d-flex d-sm-flex align-items-center justify-content-center tel"> Sales Team <a href="tel:+918805060506" class="text-danger h2 px-lg-3 ps-2">+91 88 0506 0506</a></p>
                 </div>
                 <div class="px-md-0 px-sm-4 px-0 col-md-7 mb-md-0 mb-4 form-wrapper">
-                    <form id="contactForm" name="contactForm" method="post">
+                    <form id="contactForm" name="contactForm" action="./script/inquiry.php" method="post">
                         <div class="form-group pt-2 pb-4">
                             <label for="name">Name</label>
-                            <input type="text" class="form-control bg-transparent" id="name" minlength="6" maxlength="40" pattern="[.a-zA-Z\s]*" onkeyup="this.value=this.value.replace(/[^.\a-zA-Z\s]/,'')" required>
+                            <input type="text"  onblur="userNameChecker()" class="form-control bg-transparent" id="name" name="name" minlength="6" maxlength="40" pattern="[.a-zA-Z\s]*" onkeyup="this.value=this.value.replace(/[^.\a-zA-Z\s]/,'')" required>
+                            <p id="name-error" class="error"></p>
                         </div>
                         <div class="form-row d-flex justify-content-between pb-4 gap-2">
                             <div class="form-group">
-                                <label for="phone"> Phone </label> 
-                                <input type="text" pattern="[+\-0-9\s]*" onkeyup="this.value=this.value.replace(/[^+\-0-9\s]/,'')" class="form-control bg-transparent" id="phone" maxlength="15">
+                                <label for="phone">Phone</label>
+                                <input type="text" onblur="userPhoneChecker()" pattern="[+\-0-9\s]*" onkeyup="this.value=this.value.replace(/[^+\-0-9\s]/,'')" class="form-control bg-transparent" id="phone" name="phone" maxlength="15" required>
+                                <p id="phone-error" class="error"></p>
                             </div>
                             <div class="form-group">
-                                <label for="email"> Email </label>
-                                <input type="email" maxlength="60" minlength="8" onblur="userEmailChecker()" class="form-control bg-transparent" id="email" required>
+                                <label for="email">Email</label>
+                                <input type="email" maxlength="60" minlength="8" onblur="userEmailChecker()" class="form-control bg-transparent" id="email" name="email" required>
                                 <p id="email-error" class="error"></p>
                             </div>
                         </div>
                         <div class="form-row d-flex justify-content-between pb-4 gap-2">
                             <div class="form-group">
-                                <label for="restaurantName"> Restaurant Name</label>
-                                <input type="text" class="form-control bg-transparent" id="restaurantName">
+                                <label for="restaurantName">Restaurant Name</label>
+                                <input type="text" class="form-control bg-transparent" id="restaurantName" name="restaurantName">
                             </div>
                             <div class="form-group">
-                                <label for="restaurantAddress"> Restaurant Address/G-map</label>
-                                <input type="text" class="form-control bg-transparent" id="restaurantAddress">
+                                <label for="restaurantAddress">Restaurant Address/G-map</label>
+                                <input type="text" class="form-control bg-transparent" id="restaurantAddress" name="restaurantAddress">
                             </div>
                         </div>
                         <div class="form-row pb-4">
@@ -121,7 +123,7 @@
                             <textarea name="message" class="form-control bg-transparent" id="message" rows="3"></textarea>
                         </div>
                         <div class="submit-btn">
-                            <button type="submit" class="btn btn-danger border-0 mb-sm-5 my-2 float-md-end" id="submit-button"> Submit Inquiry </button>
+                            <button type="submit" class="btn btn-danger border-0 mb-sm-5 my-2 float-md-end" id="submit-button">Submit Inquiry</button>
                         </div>
                     </form>
                 </div>

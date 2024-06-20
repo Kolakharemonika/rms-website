@@ -194,28 +194,71 @@ if(window.innerWidth > 767.98) {
         });
     })
 }
-const submitButton = document.getElementById('submit-button');
-submitButton.addEventListener('click', (event) => {
-    event.preventDefault();
-    var Form = document.getElementById('contactForm');
-    console.log('submitButton', Form.checkValidity(), document.contactForm);    
-    if (Form.checkValidity() == false) {
-        var list = Form.querySelectorAll(':invalid');
-        for (var item of list) {
-            item.focus();
-        }
-    }
-});
+// const submitButton = document.getElementById('submit-button');
+// submitButton.addEventListener('click', (event) => {
+//     event.preventDefault();
+//     var Form = document.getElementById('contactForm');
+//     console.log('submitButton', Form.checkValidity(), document.contactForm);    
+//     if (Form.checkValidity() == false) {
+//         var list = Form.querySelectorAll(':invalid');
+//         for (var item of list) {
+//             item.focus();
+//         }
+//     }
+// });
 
 function userEmailChecker() {
     var userEmail = document.contactForm.email; 
-
-    var regex = /^[a-zA-Z]([a-zA-Z0-9-_])*(.[a-zA-Z0-9-_])*@[a-zA-Z](([a-zA-Z0-9-_.])*)+.[a-zA-Z]{2,4}$/;
+    var regex = /^[a-zA-Z]([a-zA-Z0-9-_])*\.?[a-zA-Z0-9-_]*@[a-zA-Z](([a-zA-Z0-9-_.])*)+\.[a-zA-Z]{2,4}$/;
 
     if (regex.test(userEmail.value)) {
         document.getElementById("email-error").innerHTML = "";
     } else {
-        document.getElementById("email-error").innerHTML = "Entered valid email!";
+        document.getElementById("email-error").innerHTML = "Enter a valid email!";
+    }
+}
+
+
+function userNameChecker() {
+    var userName = document.contactForm.name; 
+    var regex = /^[.a-zA-Z\s]*$/;
+
+    if (regex.test(userName.value) && userName.value.length >= 6 && userName.value.length <= 40) {
+        document.getElementById("name-error").innerHTML = "";
+    } else {
+        document.getElementById("name-error").innerHTML = "Enter a valid name!";
+    }
+}
+
+function userPhoneChecker() {
+    var userPhone = document.contactForm.phone; 
+    var regex = /^[+\-0-9\s]*$/;
+
+    if (regex.test(userPhone.value) && userPhone.value.length >= 10  && userPhone.value.length <= 15) {
+        document.getElementById("phone-error").innerHTML = "";
+    } else {
+        document.getElementById("phone-error").innerHTML = "Enter a valid phone number!";
+    }
+}
+
+function validateForm() {
+    var isValid = true;
+
+    userNameChecker();
+    userPhoneChecker();
+    userEmailChecker();
+
+    if (document.getElementById("name-error").innerHTML != "" ||
+        document.getElementById("phone-error").innerHTML != "" ||
+        document.getElementById("email-error").innerHTML != "") {
+        isValid = false;
     }
 
+    return isValid;
 }
+
+document.getElementById("contactForm").addEventListener("submit", function(event) {
+    if (!validateForm()) {
+        event.preventDefault();
+    }
+});
